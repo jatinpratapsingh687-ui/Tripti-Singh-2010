@@ -1,1 +1,0 @@
-# Tripti-Singh-2010

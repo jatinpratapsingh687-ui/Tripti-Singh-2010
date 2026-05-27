@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Tripti! ❤️ - With Love, Jatin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 30%, #f48fb1 60%, #ec407a 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating Hearts */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            animation: floatUp 7s ease-in infinite;
+            opacity: 0;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(105vh) scale(0) rotate(0deg);
+                opacity: 0;
+            }
+            15% {
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(50vh) scale(1.3) rotate(180deg);
+                opacity: 0.5;
+            }
+            85% {
+                opacity: 0.1;
+            }
+            100% {
+                transform: translateY(-10vh) scale(0.3) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .sparkle-burst {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1000;
+            animation: sparkleOut 1.2s ease-out forwards;
+        }
+
+        @keyframes sparkleOut {
+            0% {
+                transform: scale(1) translate(0, 0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0) translate(var(--dx), var(--dy));
+                opacity: 0;
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px 30px;
+            animation: fadeInDown 1.5s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero .cake {
+            font-size: 90px;
+            animation: bounceCake 2s ease infinite;
+            display: inline-block;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .hero .cake:active {
+            transform: scale(1.3);
+        }
+
+        @keyframes bounceCake {
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-25px) rotate(-5deg);
+            }
+            50% {
+                transform: translateY(0) rotate(0deg);
+            }
+            75% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+        }
+
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(194, 24, 91, 0.6);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 15px rgba(194, 24, 91, 0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.8em;
+            color: #c2185b;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4em;
+            color: #880e4f;
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        .hero .kareja-tag {
+            display: inline-block;
+            background: #c2185b;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            animation: pulse 2s ease infinite;
+            letter-spacing: 1px;
+        }
+
+        .countdown-section {
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 35px 25px;
+            margin: 30px 0;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            animation: fadeIn 2s ease 0.5s both;
+        }
+
+        .countdown-section h2 {
+            color: #6a1b3a;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        .countdown-section .meet-date {
+            color: #c2185b;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .time-block {
+            background: linear-gradient(135deg, #c2185b, #880e4f);
+            color: white;
+            padding: 22px 18px;
+            border-radius: 18px;
+            min-width: 85px;
+            box-shadow: 0 6px 20px rgba(194, 24, 91, 0.45);
+            transition: transform 0.3s ease;
+        }
+
+        .time-block:hover {
+            transform: translateY(-5px);
+        }
+
+        .time-block .number {
+            font-size: 2.8em;
+            font-weight: bold;
+            display: block;
+            line-height: 1;
+        }
+
+        .time-block .label {
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+
+        .love-letter {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 25px;
+            padding: 45px 35px;
+            margin: 30px 0;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+            animation: fadeIn 2s ease 1s both;
+            border-left: 6px solid #c2185b;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .love-letter::before {
+            content: '💌';
+            position: absolute;
+            top: -30px;
+            right: -20px;
+            font-size: 100px;
+            opacity: 0.15;
+            transform: rotate(20deg);
+        }
+
+        .love-letter h2 {
+            color: #c2185b;
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 2em;
+        }
+
+        .love-letter .dear {
+            font-size: 1.2em;
+            color: #880e4f;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .love-letter p {
+            line-height: 2;
+            color: #4e342e;
+            font-size: 1.1em;
+        }
+
+        .love-letter .highlight {
+            color: #c2185b;
+            font-weight: bold;
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 25px;
+            font-style: italic;
+            color: #c2185b;
+            font-size: 1.3em;
+        }
+
+        .signature .kareja {
+            font-size: 0.8em;
+            display: block;
+            color: #f06292;
+            margin-top: 3px;
+        }
+
+        /* Gallery with upload functionality */
+        .gallery {
+            animation: fadeIn 2s ease 1.5s both;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            color: #c2185b;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+
+        .gallery .gallery-subtitle {
+            text-align: center;
+            color: #6a1b3a;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .photos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .photo-card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border: 3px dashed #f48fb1;
+        }
+
+        .photo-card.has-photo {
+            border: 3px solid #c2185b;
+        }
+
+        .photo-card:hover {
+            transform: scale(1.05) rotate(-2deg);
+            box-shadow: 0 12px 35px rgba(194, 24, 91, 0.35);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-card .upload-label {
+            text-align: center;
+            color: #c2185b;
+            font-size: 0.9em;
+            padding: 10px;
+            pointer-events: none;
+        }
+
+        .photo-card .upload-icon {
+            font-size: 50px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .photo-card .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(194, 24, 91, 0.9);
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-size: 0.8em;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        .photo-card:hover .photo-caption {
+            transform: translateY(0);
+        }
+
+        .photo-card input[type="file"] {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        /* Reasons Section */
+        .reasons {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
+            padding: 40px 35px;
+            margin: 30px 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease 2s both;
+        }
+
+        .reasons h2 {
+            color: #c2185b;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 2em;
+        }
+
+        .reasons-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .reasons-list li {
+            padding: 16px 20px;
+            margin: 12px 0;
+            background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+            border-radius: 35px;
+            color: #4e0040;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            cursor: default;
+            border-left: 4px solid #c2185b;
+        }
+
+        .reasons-list li:hover {
+            transform: translateX(12px);
+            background: linear-gradient(135deg, #f8bbd0, #f48fb1);
+            box-shadow: 0 4px 15px rgba(194, 24, 91, 0.25);
+        }
+
+        /* Kareja Section */
+        .kareja-section {
+            background: linear-gradient(135deg, #c2185b, #880e4f);
+            color: white;
+            border-radius: 25px;
+            padding: 35px;
+            margin: 30px 0;
+            text-align: center;
+            animation: fadeIn 2s ease 2.3s both;
+            box-shadow: 0 10px 40px rgba(194, 24, 91, 0.4);
+        }
+
+        .kareja-section h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .kareja-section .big-kareja {
+            font-size: 3.5em;
+            font-weight: bold;
+            letter-spacing: 3px;
+            animation: pulse 1.5s ease infinite;
+        }
+
+        .kareja-section p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        /* Hug Button */
+        .hug-section {
+            text-align: center;
+            padding: 20px;
+            animation: fadeIn 2s ease 2.6s both;
+        }
+
+        .hug-btn {
+            background: linear-gradient(135deg, #c2185b, #e91e63);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(194, 24, 91, 0.5);
+            font-family: 'Georgia', serif;
+            letter-spacing: 1px;
+        }
+
+        .hug-btn:hover {
+            background: linear-gradient(135deg, #880e4f, #c2185b);
+            transform: translateY(-5px);
+            box-shadow: 0 14px 35px rgba(194, 24, 91, 0.65);
+        }
+
+        .hug-btn:active {
+            transform: scale(0.95);
+        }
+
+        .hug-message {
+            margin-top: 15px;
+            font-size: 1.1em;
+            color: #c2185b;
+            min-height: 30px;
+            font-style: italic;
+        }
+
+        /* Save Button */
+        .save-section {
+            text-align: center;
+            padding: 15px;
+            animation: fadeIn 2s ease 2.8s both;
+        }
+
+        .save-btn {
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 30px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Georgia', serif;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+        }
+
+        .save-btn:hover {
+            background: #388e3c;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px 30px;
+            color: #c2185b;
+            font-size: 1.1em;
+            animation: fadeIn 2s ease 3s both;
+        }
+
+        .confetti-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 999;
+            pointer-events: none;
+        }
+
+        .confetti-overlay.active {
+            display: block;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            top: -20px;
+            animation: confettiFall 3s ease-in forwards;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(105vh) rotate(720deg) scale(0.3);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2.3em;
+            }
+            .hero .cake {
+                font-size: 60px;
+            }
+            .love-letter {
+                padding: 25px 20px;
+            }
+            .photos {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .time-block {
+                min-width: 65px;
+                padding: 15px 10px;
+            }
+            .time-block .number {
+                font-size: 2em;
+            }
+            .kareja-section .big-kareja {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts-container" id="heartsContainer"></div>
+    <div class="confetti-overlay" id="confettiOverlay"></div>
+
+    <div class="container">
+        <!-- Hero -->
+        <div class="hero">
+            <div class="cake" id="cakeIcon" title="Click me! 🎂">🎂</div>
+            <h1>Happy Birthday, Tripti!</h1>
+            <p class="subtitle">The day the world became more beautiful ✨</p>
+            <div class="kareja-tag">💖 My Kareja 💖</div>
+        </div>
+
+        <!-- Countdown -->
+        <div class="countdown-section">
+            <h2>⏰ Counting Down To Hold You Again...</h2>
+            <p class="meet-date">📅 November 21, 2026</p>
+            <div class="countdown-timer" id="countdown"></div>
+        </div>
+
+        <!-- Love Letter -->
+        <div class="love-letter">
+            <h2>💌 A Letter From My Heart</h2>
+            <p class="dear">My dearest Tripti, my <span class="highlight">Kareja</span> 💕</p>
+            <p>
+                On this beautiful day — <span class="highlight">your birthday</span> — I find myself wishing
+                I could be right there beside you, holding your hand and seeing that gorgeous smile of yours.
+                But even from afar, my heart beats only for you.<br><br>
+
+                Tripti, you are the most incredible person I've ever known. The way you light up every room,
+                the kindness in your soul, the way you make even ordinary moments feel magical — that's why
+                I call you my <span class="highlight">Kareja</span>. You're not just in my heart; you
+                <em>are</em> my heart.<br><br>
+
+                Every day without you makes me realize just how much you mean to me. But knowing I'll
+                see you on <span class="highlight">November 21st</span> keeps me going. Until then, I'm
+                sending you all my love wrapped in this little website.<br><br>
+
+                Happy birthday, my love. May this year bring you everything your beautiful heart desires.
+                I can't wait to celebrate many, many more birthdays with you.<br><br>
+
+                <em>Tu meri duniya hai, Tripti. Meri Kareja. ❤️</em>
+            </p>
+            <div class="signature">
+                — Yours always & forever,<br>
+                <strong>Jatin</strong>
+                <span class="kareja">(Your Kareja ka rakhwala 😘)</span>
+            </div>
+        </div>
+
+        <!-- Photo Gallery with Upload -->
+        <div class="gallery">
+            <h2>📸 you </h2>
+            <p class="gallery-subtitle">👆 add </p>
+            <div class="photos" id="photoGrid">
+                <!-- Photo slots generated by JS -->
+            </div>
+        </div>
+
+        <!-- Reasons -->
+        <div class="reasons">
+            <h2>💖 10 Reasons Tripti Is My Kareja</h2>
+            <ul class="reasons-list">
+                <li>✨ <strong>Your smile</strong> — it can brighten even my darkest days</li>
+                <li>😂 <strong>Your laugh</strong> — the sweetest sound I've ever heard</li>
+                <li>💪 <strong>Your strength</strong> — you inspire me every single day</li>
+                <li>🌸 <strong>Your kindness</strong> — the way you care for everyone around you</li>
+                <li>🧠 <strong>Your mind</strong> — I love our conversations and your perspective</li>
+                <li>🎯 <strong>Your passion</strong> — you chase your dreams fearlessly</li>
+                <li>🤗 <strong>Your hugs</strong> — counting days until November 21st for the next one!</li>
+                <li>👀 <strong>Those eyes</strong> — I get lost in them every time</li>
+                <li>🎵 <strong>Your voice</strong> — even a phone call makes my day complete</li>
+                <li>❤️ <strong>Because you're YOU</strong> — Tripti, meri Kareja, there's no one like you</li>
+            </ul>
+        </div>
+
+        <!-- Kareja Shoutout -->
+        <div class="kareja-section">
+            <h2>💝 A Special Message for My Kareja 💝</h2>
+            <div class="big-kareja">KAREJA ❤️</div>
+            <p>
+                Tripti, tu sirf mera pyaar nahi, tu meri <strong>Kareja</strong> hai.<br>
+                Jaan se bhi zyada pyaar karta hoon tujhe.<br>
+                Happy Birthday, meri jaan! 🎂
+            </p>
+            <p style="font-size: 0.9em; margin-top: 15px; opacity: 0.8;">
+              
